@@ -13,3 +13,11 @@ There are many uses for a simple 8-bit pixel art editor.  From making video game
 1. Authentication: 8-bit pixel art editor will allow users to make an account and log in when they make their art.
 2. Database data: 8-bit pixel art editor will save art made by different users and allow recent ones to be seen.
 3. Websocket data: 8-bit pixel art editor will tell you when people are currently working on their own art, when they post, and even what color they are currently using!
+## HTML Deliverables
+- HTML pages - Four HTML pages.  Art, About, view, and home (index)
+- Links - Pages to other pages on the site and to this repository
+- Text - Text telling users to choose a color and displaying usernames
+- Images - For now the drawing grid is just an image
+- Login - Input box and submit button for login.
+- Database - Other's artwork stored on a databse
+- WebSocket - Showing which colors other users are using
