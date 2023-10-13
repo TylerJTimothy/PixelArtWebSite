@@ -21,3 +21,10 @@ There are many uses for a simple 8-bit pixel art editor.  From making video game
 - Login - Input box and submit button for login.
 - Database - Other's artwork stored on a databse
 - WebSocket - Showing which colors other users are using
+## CSS Deliverables
+- Consistent Bootstrap Header, consistent footer, and main layout 
+- Navigate through the header including my brand icon I made
+- Responsive design, other than the art canvas and images
+- Consistent color scheme and contrast
+- Consistent fonts
+- Ordered my images using CSS grids
