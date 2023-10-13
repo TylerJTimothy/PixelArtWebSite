@@ -3,33 +3,69 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>2d Pixel-Art Editor HTML</title>
+        <title>8-bit Pixel Art Editor HTML</title>
 
+        <link rel="icon" href="favicon.ico" />
+
+        <link rel="stylesheet" href="art.css" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+        
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+            crossorigin="anonymous"
+        />
     </head>
-    <body>
-        <header>
-            <h1>8-bit Pixel Art Editor</h1>
+    <body class="body-bg-color">
+        <header class="header-bg-color container-fluid">
+            
+            <nav class="navbar fixed-top header-bg-color text-center">
+                <a class="navbar-brand" href="index.html">
+                    <img src="homeIcon.png" alt="Home" class="custom-icon">
+                </a>
+                <menu class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="art.html">Create</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="view.html">Gallery</a>
+                    </li>
+                </menu>
+            </nav>
         </header>
-        <nav>
-            <menu>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="art.html">Create Art</a></li>
-            <li><a href="view.html">View Art</a></li>
-            <li><a href="about.html">About</a></li>
-            </menu>
-        </nav>
-        <main>
-            <p>Choose your color: 
-              <input type="color" name="varColor" id="color" value="#FFC0CB" /></p>
-            <div id="picture" class="picture-box"><img width="400px" src="grid.jpg" alt="Grid" /></div>
-            <p>Current colors other people are using: <input type="color" name="varColor" id="color" value="#FFC0CB" /></p>
-            <p>Need an idea of what to draw?  Click this button to get a sample prompt: <button type="button">Prompt!</button></p>
+        <main class="container-fluid">
+            <div class="top-main container">
+                <div class="before-elements">
+                    <p>Choose your color</p>
+                    <input type="color" name="varColor" id="color" value="#FFC0CB" />
+                </div>
+                <div class="centered-container">
+                    <div class="centered-element">
+                        <canvas id="pixelCanvas"></canvas>
+                    </div>
+                </div>
+                <div class="after-elements">
+                    <p>Current colors other people are using</p>
+                    <input type="color" name="varColor" id="color" value="#FCFFA6" />
+                    <input type="color" name="varColor" id="color" value="#C1FFD7" />
+                    <input type="color" name="varColor" id="color" value="#B5DEFF" />
+                    <input type="color" name="varColor" id="color" value="#CAB8FF" />
+                </div>
+            </div>
+            <p>Need an idea of what to draw?  Click this button to get a sample prompt: <button type="button" class="btn btn-primary">Prompt!</button></p>
           </main>
-        <footer>
-            <hr />
-            <span class="text-reset">Created by Tyler Timothy</span>
-            <br />
-            <a href="https://github.com/TylerJTimothy/startup">GitHub Repository</a>
+        <footer class="footer-bg-color">
+            <div>
+                <span class="text-reset">Created by Tyler Timothy:</span>
+                <a href="https://github.com/TylerJTimothy/startup">GitHub Repository</a>
+            </div>
         </footer>
     </body>
 </html>

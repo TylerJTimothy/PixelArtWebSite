@@ -1,0 +1,169 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-width: 375px;
+    
+}
+
+header {
+    flex: 0 60px;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+main {
+  flex: 1 calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+/* Container for the entire section */
+.container {
+    display: flex;
+    flex-direction: row; /* Arrange elements vertically */
+    justify-content: center; /* Center elements horizontally within the container */
+    align-items: center; /* Center elements vertically within the container */
+}
+
+/* Container for elements before the centered element */
+.before-elements {
+    flex: 1;
+    margin-bottom: 20px; /* Add margin between elements before and after centered element */
+    text-align: center; /* Center text horizontally within this container */
+}
+
+/* Container for centered element and elements to be centered */
+.centered-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column; /* Arrange elements vertically */
+    justify-content: center; /* Center elements horizontally within this container */
+    align-items: center; /* Center elements vertically within this container */
+    padding: 20px; /* Add padding for spacing */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+/* Centered element within the centered container */
+.centered-element {
+    /* Styles for the centered element (customize as needed) */
+    padding: 10px;
+    text-align: center;
+}
+
+/* Container for elements after the centered element */
+.after-elements {
+    flex: 1;
+    margin-top: 20px; /* Add margin between elements before and after centered element */
+    text-align: center; /* Center text horizontally within this container */
+}
+
+footer {
+    flex: 0 1 40px;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+}
+
+menu {
+  flex: 1;
+  display: flex;
+  /*  overwrite Bootstrap so the menu does not wrap */
+  flex-direction: row !important;
+  list-style: none;
+}
+
+.title-word {
+    font-size: 50px;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+.custom-icon {
+    width: 40px; /* Adjust the width as needed */
+    height: 40px; /* Adjust the height as needed */
+    margin-right: 0px; /* Adjust the spacing as needed */
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand {
+  padding-left: 0.7em;
+  display: flex;
+  align-items: center;
+  margin-right: 0;
+}
+
+menu .nav-item {
+  font-size: xx-large;
+  padding: 0 0.2em;
+  margin-bottom: 16px;
+  font-family: 'Pixelify Sans', sans-serif;
+  line-height: 0;
+} 
+  
+#pixelCanvas {
+    border: 1px solid #000;
+    width: 500px;
+    height: 500px;
+    background-color: #fff;
+}
+
+.header-bg-color {
+    background-color: #7c50a4; /* Dark pastel purple */
+    color: #7F7C82; /* header text color gray */
+}
+
+.body-bg-color {
+    background-color: #2c2b2e; /* Dark background */
+    color: #F3F1F5; /* white text */
+}
+
+.footer-bg-color {
+    background-color: #F0D9FF; /* light pastel purple */
+    color: #7F7C82; /* header text color gray */
+}
+
+body .btn-primary {
+    background-color: #7c50a4; /* Replace with your desired color */
+    border-color: #7c50a4; /* Set border color to match if needed */
+    color: #F3F1F5; /* Set text color for contrast */
+}
+
+/* Change the background color on hover (optional) */
+body .btn-primary:hover {
+    background-color: #704994; /* Replace with hover color */
+    border-color: #704994; /* Set hover border color to match if needed */
+}
+
+body .btn-primary:active {
+    background-color: #7c50a4 !important; /* Replace with your desired color */
+    border-color: #7c50a4 !important; /* Set border color to match if needed */
+    color: #F3F1F5; /* Set text color for contrast */
+}
+
+body .btn-primary:focus {
+    background-color: #7c50a4;
+    outline: none; /* Remove default focus outline (optional) */
+    box-shadow: 0 0 5px rgba(214, 72, 253, 0.5); /* Add a custom box shadow */
+    border-color: #704994; /* Change the border color on focus */
+    border-width: 1px;
+}
+
+
+@media (max-height: 600px) {
+  header {
+    display: none;
+  }
+  footer {
+    display: none;
+  }
+  main {
+    flex: 1 100vh;
+  }
+}
