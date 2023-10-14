@@ -106,15 +106,3 @@ body .btn-primary:focus {
     border-color: #704994; /* Change the border color on focus */
     border-width: 1px;
 }
-
-@media (max-height: 600px) {
-  header {
-    display: none;
-  }
-  footer {
-    display: none;
-  }
-  main {
-    flex: 1 100vh;
-  }
-}
