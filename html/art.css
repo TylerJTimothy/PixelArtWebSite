@@ -106,7 +106,15 @@ menu .nav-item {
   font-family: 'Pixelify Sans', sans-serif;
   line-height: 0;
 } 
-  
+
+#artist {
+  font-size: xx-large;
+  color:#2c2b2e;
+  padding: 0 0.2em;
+  font-family: 'Pixelify Sans', sans-serif;
+  line-height: 0;
+}
+
 #pixelCanvas {
     border: 1px solid #000;
     width: 500px;

@@ -38,17 +38,24 @@
                         <a class="nav-link" href="view.html">Gallery</a>
                     </li>
                 </menu>
+                <div id="artist"></div>
             </nav>
         </header>
         <main class="container-fluid">
             <div class="top-main container">
                 <div class="before-elements">
                     <p>Choose your color</p>
-                    <input type="color" name="varColor" id="color" value="#FFC0CB" />
+                    <input type="color" name="currentColor" id="colorPicker" value="#000" />
                 </div>
                 <div class="centered-container">
                     <div class="centered-element">
-                        <canvas id="pixelCanvas"></canvas>
+                        <canvas id="pixelCanvas" width="512" height="512"></canvas>
+                        <div>
+                            <button id="size8x8" class="btn btn-primary">8x8</button>
+                            <button id="size16x16" class="btn btn-primary">16x16</button>
+                            <button id="size32x32" class="btn btn-primary">32x32</button>
+                            <p>Caution: Changing canvas size will erase current art.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="after-elements">
@@ -67,5 +74,6 @@
                 <a href="https://github.com/TylerJTimothy/startup">GitHub Repository</a>
             </div>
         </footer>
+        <script src="art.js"></script>
     </body>
 </html>
