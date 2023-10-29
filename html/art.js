@@ -119,3 +119,27 @@ document.getElementById('size32x32').addEventListener('click', () => {
     numTiles = 32;
     drawCheckerboard();
 });
+
+const getRandomTime = () => Math.random() * 13000 + 2000;
+
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+const changeColorRandomly = (picker) => {
+    picker.value = getRandomColor();
+
+    // Set another timeout with a random delay for this picker
+    setTimeout(() => changeColorRandomly(picker), getRandomTime());
+}
+
+// Initial call for each picker to start the process
+const colorPickers = document.querySelectorAll('.randomColor');
+colorPickers.forEach(picker => {
+    changeColorRandomly(picker);
+});

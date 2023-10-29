@@ -42,7 +42,16 @@ main {
     justify-content: center; /* Center elements horizontally within this container */
     align-items: center; /* Center elements vertically within this container */
     padding: 20px; /* Add padding for spacing */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+.right-side {
+    display: flex;
+    flex: 1;
+    flex-direction: column; /* Arrange elements vertically */
+    justify-content: space-around; /* Center elements horizontally within this container */
+    align-items: center; /* Center elements vertically within this container */
+    padding-top: 180px; /* Add padding for spacing */
+    height: 500px;
 }
 
 /* Centered element within the centered container */
@@ -57,6 +66,16 @@ main {
     flex: 1;
     margin-top: 20px; /* Add margin between elements before and after centered element */
     text-align: center; /* Center text horizontally within this container */
+}
+
+.save {
+    flex: 1;
+    margin-top: 20px; /* Add margin between elements before and after centered element */
+    text-align: center; /* Center text horizontally within this container */
+}
+
+#saveButton {
+    font-size: 3em;
 }
 
 footer {
