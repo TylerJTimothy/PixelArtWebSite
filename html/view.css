@@ -13,7 +13,7 @@ header {
 main {
   flex: 1 calc(100vh - 100px);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: space-around;
 }
@@ -66,6 +66,17 @@ menu .nav-item {
   line-height: 0;
 } 
 
+.centered-container {
+    display: flex;
+    flex-direction: row; /* Arrange elements vertically */
+    justify-content: center; /* Center elements horizontally within the container */
+    align-items: center; /* Center elements vertically within the container */
+}
+
+button {
+    flex: 1;
+}
+
 main hr {
     border: 3px solid #7c50a4;
     border-radius: 5px;
@@ -79,8 +90,10 @@ main hr {
 
 .grid-container {
     display: grid;
+    flex: 1;
     grid-template-columns: repeat(3, 175px); /* Three columns with 200px width each */
     grid-gap: 15px; /* Gap between rows and columns */
+    padding-right: 5em;
 }
 
 .grid-item {
@@ -136,3 +149,64 @@ body .btn-primary:focus {
     border-width: 1px;
 }
 
+#artist {
+    font-size: xx-large;
+    color:#2c2b2e;
+    padding: 0 0.2em;
+    font-family: 'Pixelify Sans', sans-serif;
+    line-height: 0;
+  }
+
+@media (max-width: 600px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .save {
+        margin-top: 20px;
+    }
+
+    .custom-icon {
+        width: 20px; /* Adjust the width as needed */
+        height: 20px; /* Adjust the height as needed */
+        margin-right: 0px; /* Adjust the spacing as needed */
+    }
+
+    menu .nav-item {
+        font-size: x-large;
+        padding: 0 0.2em;
+        margin-bottom: 16px;
+        font-family: 'Pixelify Sans', sans-serif;
+        line-height: 0;
+    }
+    
+    #artist {
+        font-size: x-large;
+        padding: 0 0.2em;
+        margin-top: 18px;
+        margin-bottom: 16px;
+        font-family: 'Pixelify Sans', sans-serif;
+        line-height: 0;
+    }
+
+    .grid-container {
+        display: grid;
+        flex: 1;
+        grid-template-columns: repeat(1, 175px); /* Three columns with 200px width each */
+        grid-gap: 15px; /* Gap between rows and columns */
+        padding-right: 5em;
+    }
+    
+    .grid-item {
+        width: 175px; /* Explicit width */
+        height: 175px; /* Explicit height to create square */
+    }
+    
+    .grid-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Maintain aspect ratio and cover the square */
+        border-radius: 8px;
+    }
+}

@@ -122,6 +122,25 @@ document.getElementById('size32x32').addEventListener('click', () => {
 
 const getRandomTime = () => Math.random() * 13000 + 2000;
 
+const promptOptions = [
+    "Apple",
+    "Horse",
+    "Sword",
+    "Tree",
+    "Car",
+    "Robot",
+    "Castle",
+    "Book",
+    "Flower",
+    "Mountain"
+];
+
+document.getElementById('promptButton').addEventListener('click', function() {
+    const randomIndex = Math.floor(Math.random() * promptOptions.length);
+    const randomPrompt = promptOptions[randomIndex];
+    alert("Try drawing a " + randomPrompt);
+});
+
 function getRandomColor() {
     const letters = '0123456789ABCDEF';
     let color = '#';
@@ -142,4 +161,23 @@ const changeColorRandomly = (picker) => {
 const colorPickers = document.querySelectorAll('.randomColor');
 colorPickers.forEach(picker => {
     changeColorRandomly(picker);
+});
+
+const saveCanvasData = () => {
+    const canvas = document.getElementById('pixelCanvas');
+    const currentData = canvas.toDataURL();
+
+    let savedImages = JSON.parse(localStorage.getItem('savedImages')) || [];
+    
+    if (savedImages.length < 9) {
+        savedImages.push(currentData);
+        localStorage.setItem('savedImages', JSON.stringify(savedImages));
+    } else {
+        alert("You've reached the maximum of 9 saved images.");
+    }
+}
+
+document.getElementById('saveButton').addEventListener('click', () => {
+    saveCanvasData();
+    alert('Canvas saved successfully!');
 });
