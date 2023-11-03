@@ -28,3 +28,10 @@ There are many uses for a simple 8-bit pixel art editor.  From making video game
 - Consistent color scheme and contrast
 - Consistent fonts
 - Ordered my images using CSS grids
+## JavaScript deliverable
+For this deliverable I implemented by JavaScript so that the application works for a single user. I also added placeholders for future technology.
+
+- login - When you press enter or the login button it takes you to the pixel art creation page.
+- database - Stores the photos you've made on local storage and displays them on the gallery page.
+- WebSocket - Right now I jused javascript to randomly switch colors that other people could be using.
+- application logic - You can create images pixel by pixel on a cavnas element
