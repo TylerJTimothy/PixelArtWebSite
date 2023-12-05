@@ -122,7 +122,7 @@ document.getElementById('size32x32').addEventListener('click', () => {
 
 const getRandomTime = () => Math.random() * 13000 + 2000;
 
-const promptOptions = [
+/*const promptOptions = [
     "Apple",
     "Horse",
     "Sword",
@@ -140,6 +140,32 @@ document.getElementById('promptButton').addEventListener('click', function() {
     const randomPrompt = promptOptions[randomIndex];
     alert("Try drawing a " + randomPrompt);
 });
+*/ 
+
+document.getElementById('promptButton').addEventListener('click', generateColor);
+
+async function generateColor() {
+    const userInput = prompt("What do you want to draw?");
+    if (userInput && userInput.trim() !== '') {
+        try {
+            const response = await fetch(`http://localhost:3000/generatePalette?text=${encodeURIComponent(userInput)}`);
+            const data = await response.json();
+            const hexPalette = data.hex_palette;
+
+            if (hexPalette && hexPalette.length >= 3) {
+                document.getElementById('colorPicker1').value = hexPalette[0];
+                document.getElementById('colorPicker2').value = hexPalette[1];
+                document.getElementById('colorPicker3').value = hexPalette[2];
+            } else {
+                console.error('Hex palette data is missing or incomplete.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    } else {
+        console.log('No input provided. Color generation cancelled.');
+    }
+}
 
 function getRandomColor() {
     const letters = '0123456789ABCDEF';
