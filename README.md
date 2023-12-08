@@ -43,3 +43,10 @@ For this deliverable I added backend endpoints that make calls to an api to get 
 - Static middleware for frontend - done!
 - Calls to third party endpoints - calls a color palette api
 - Frontend calls service endpoints - I did this using the fetch function on a button press
+
+## DB deliverable
+For this deliverable I stored images in the database.
+
+- MongoDB Atlas database created - done!
+- Endpoints for data - My stubbed out endpoints now process the data and send it to Mongo.
+- Stores data in MongoDB - done!
