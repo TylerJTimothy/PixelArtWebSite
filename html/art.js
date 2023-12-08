@@ -189,7 +189,7 @@ colorPickers.forEach(picker => {
     changeColorRandomly(picker);
 });
 
-const saveCanvasData = () => {
+const saveCanvasDataLocal = () => {
     const canvas = document.getElementById('pixelCanvas');
     const currentData = canvas.toDataURL();
 
@@ -203,7 +203,29 @@ const saveCanvasData = () => {
     }
 }
 
+const saveCanvasData = async () => {
+    const canvas = document.getElementById('pixelCanvas');
+    const currentData = canvas.toDataURL(); // Gets the image data
+
+    try {
+        const response = await fetch('/saveImage', { // URL of your server endpoint
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ imageData: currentData }) // Send the image data as JSON
+        });
+
+        const result = await response.text();
+        alert('Save to database succeeded'); // Alert the response from the server
+    } catch (error) {
+        console.error('Error saving the canvas:', error);
+        alert('Failed to save the canvas to the database, saving locally.');
+        saveCanvasDataLocal();
+    }
+}
+
 document.getElementById('saveButton').addEventListener('click', () => {
     saveCanvasData();
-    alert('Canvas saved successfully!');
+
 });

@@ -7,17 +7,25 @@ function displayStoredText() {
 // Execute the function once the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', displayStoredText);
 
-window.onload = function() {
-    const savedImages = JSON.parse(localStorage.getItem('savedImages')) || [];
+const config = require('./dbConfig.json');
 
-    const gridContainer = document.querySelector('.grid-container');
-    
-    savedImages.forEach(data => {
-        const img = document.createElement('img');
-        img.src = data;
-        img.classList.add('grid-item'); // Assuming you have grid-item styling in your CSS
-        gridContainer.appendChild(img);
-    });
+
+window.onload = async function() {
+    try {
+        const response = await fetch('/getImages'); // Replace with your server URL
+        const savedImages = await response.json();
+        alert("loading images")
+        const gridContainer = document.querySelector('.grid-container');
+        
+        savedImages.forEach(data => {
+            const img = document.createElement('img');
+            img.src = data.imageData; // Assuming your server sends the image data in a property named 'imageData'
+            img.classList.add('grid-item'); // Assuming you have grid-item styling in your CSS
+            gridContainer.appendChild(img);
+        });
+    } catch (error) {
+        console.error('Error fetching images:', error);
+    }
 }
 
 document.getElementById('deleteAllButton').addEventListener('click', function() {
@@ -32,3 +40,17 @@ document.getElementById('deleteAllButton').addEventListener('click', function() 
         gridContainer.innerHTML = '';
     }
 });
+
+/* window.onload = function() {
+    const savedImages = JSON.parse(localStorage.getItem('savedImages')) || [];
+
+    const gridContainer = document.querySelector('.grid-container');
+    
+    savedImages.forEach(data => {
+        const img = document.createElement('img');
+        img.src = data;
+        img.classList.add('grid-item'); // Assuming you have grid-item styling in your CSS
+        gridContainer.appendChild(img);
+    });
+}
+*/
