@@ -148,7 +148,7 @@ async function generateColor() {
     const userInput = prompt("What do you want to draw?");
     if (userInput && userInput.trim() !== '') {
         try {
-            const response = await fetch(`http://localhost:3000/generatePalette?text=${encodeURIComponent(userInput)}`);
+            const response = await fetch(`/generatePalette?text=${encodeURIComponent(userInput)}`);
             const data = await response.json();
             const hexPalette = data.hex_palette;
 
@@ -176,7 +176,7 @@ function getRandomColor() {
     return color;
 }
 
-const changeColorRandomly = (picker) => {
+/*const changeColorRandomly = (picker) => {
     picker.value = getRandomColor();
 
     // Set another timeout with a random delay for this picker
@@ -188,6 +188,7 @@ const colorPickers = document.querySelectorAll('.randomColor');
 colorPickers.forEach(picker => {
     changeColorRandomly(picker);
 });
+*/
 
 const saveCanvasDataLocal = () => {
     const canvas = document.getElementById('pixelCanvas');
