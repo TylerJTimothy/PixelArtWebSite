@@ -58,3 +58,11 @@ For this deliverable I require user authentication
 - existing user - can log in with credentials
 - Use MongoDB to store credentials
 - Restricts functionality - You cannot draw art until you log in. This is restricted on the frontend only.
+
+## WebSocket deliverable
+For this deliverable I used webSocket to create a chat functionality.
+
+- Backend listens for WebSocket connection - done!
+- Frontend makes WebSocket connection - done!
+- Data sent over WebSocket connection - done!
+- WebSocket data displayed - Chat displayed on the main art page.
