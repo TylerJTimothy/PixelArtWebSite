@@ -50,3 +50,11 @@ For this deliverable I stored images in the database.
 - MongoDB Atlas database created - done!
 - Endpoints for data - My stubbed out endpoints now process the data and send it to Mongo.
 - Stores data in MongoDB - done!
+
+## Login deliverable
+For this deliverable I require user authentication
+
+- User registration - Creates a new account in the database.
+- existing user - can log in with credentials
+- Use MongoDB to store credentials
+- Restricts functionality - You cannot draw art until you log in. This is restricted on the frontend only.
