@@ -7,7 +7,7 @@ const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostna
 const client = new MongoClient(url);
 const db = client.db('pixelArt');
 const userCollection = db.collection('user');
-const scoreCollection = db.collection('score');
+const imageCollection = db.collection('images');
 
 // This will asynchronously test the connection and exit the process if it fails
 (async function testConnection() {
@@ -40,24 +40,20 @@ async function createUser(email, password) {
   return user;
 }
 
-  async function saveImage(imageData) {
-    try {
-        const result = await imageCollection.insertOne({ imageData });
-        console.log(`Image saved with id: ${result.insertedId}`);
-    } catch (ex) {
-        console.error(`Error saving image: ${ex.message}`);
-        throw ex;
-    }
+async function saveImage(imageData) {
+  const result = await imageCollection.insertOne({ imageData });
+  console.log(`Image saved with id: ${result.insertedId}`);
+  return result;
 }
 
 async function getImages() {
-    try {
-        const images = await imageCollection.find({}).toArray();
-        return images;
-    } catch (ex) {
-        console.error(`Error retrieving images: ${ex.message}`);
-        throw ex;
-    }
+  try {
+      const images = await imageCollection.find({}).toArray();
+      return images;
+  } catch (ex) {
+      console.error(`Error retrieving images: ${ex.message}`);
+      throw ex;
+  }
 }
 
 module.exports = { getUser,

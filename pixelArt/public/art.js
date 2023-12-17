@@ -142,30 +142,20 @@ document.getElementById('promptButton').addEventListener('click', function() {
 });
 */ 
 
-document.getElementById('promptButton').addEventListener('click', generateColor);
-
-async function generateColor() {
-    const userInput = prompt("What do you want to draw?");
-    if (userInput && userInput.trim() !== '') {
-        try {
-            const response = await fetch(`/generatePalette?text=${encodeURIComponent(userInput)}`);
-            const data = await response.json();
-            const hexPalette = data.hex_palette;
-
-            if (hexPalette && hexPalette.length >= 3) {
-                document.getElementById('colorPicker1').value = hexPalette[0];
-                document.getElementById('colorPicker2').value = hexPalette[1];
-                document.getElementById('colorPicker3').value = hexPalette[2];
-            } else {
-                console.error('Hex palette data is missing or incomplete.');
-            }
-        } catch (error) {
-            console.error('Error:', error);
+document.getElementById('promptButton').addEventListener('click', async () => {
+    try {
+        const response = await fetch('/suggestions');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-    } else {
-        console.log('No input provided. Color generation cancelled.');
+        const words = await response.json();
+        const suggestionsElement = document.getElementById('suggestions');
+        suggestionsElement.innerHTML = 'Suggestions: ' + words.join(', ');
+    } catch (error) {
+        console.error('Error fetching words:', error);
     }
-}
+});
+
 
 function getRandomColor() {
     const letters = '0123456789ABCDEF';
@@ -207,23 +197,18 @@ const saveCanvasDataLocal = () => {
 const saveCanvasData = async () => {
     const canvas = document.getElementById('pixelCanvas');
     const currentData = canvas.toDataURL(); // Gets the image data
+    const response = await fetch('/api/saveImage', { // URL of your server endpoint
+        method: 'post',
+        body: JSON.stringify({ imageData: currentData }), // Send the image data as JSON
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    });
 
-    try {
-        const response = await fetch('/saveImage', { // URL of your server endpoint
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ imageData: currentData }) // Send the image data as JSON
-        });
-
-        const result = await response.text();
+    if (response.ok) {
         alert('Save to database succeeded'); // Alert the response from the server
-    } catch (error) {
-        console.error('Error saving the canvas:', error);
-        alert('Failed to save the canvas to the database, saving locally.');
-        saveCanvasDataLocal();
     }
+    const body = await response.json();
 }
 
 document.getElementById('saveButton').addEventListener('click', () => {

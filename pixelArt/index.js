@@ -1,6 +1,8 @@
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const express = require('express');
+const axios = require('axios');
+
 const { WebSocketServer } = require('ws');
 const app = express();
 const DB = require('./database.js');
@@ -111,28 +113,24 @@ server = app.listen(port, () => {
   console.log(`Listening on ${port}`);
 });
 
-app.get('/generatePalette', async (req, res) => {
-    const userInput = req.query.text; // Get user input from query parameter
-
-    const url = `https://onesimpleapi.com/api/color?token=Gba0UUY8v2moTwRK1MZHXmYbi0EA2Z0t0zrBbZZQ&output=json&hue=125&text=${encodeURIComponent(userInput)}`;
-
-    try {
-        const response = await axios.get(url);
-        res.json(response.data);
-    } catch (error) {
-        console.error('Error:', error);
-        res.status(500).send('An error occurred');
-    }
+app.get('/suggestions', async (req, res) => {
+  try {
+      const response = await axios.get('https://random-word-api.vercel.app/api?words=5&length=3&alphabetize=true');
+      res.json(response.data);
+  } catch (error) {
+      console.error('Error fetching suggestions:', error);
+      res.status(500).send('An error occurred while fetching suggestions');
+  }
 });
 
 app.post('/saveImage', async (req, res) => {
-    try {
-        await db.saveImage(req.body.imageData); // Save the image data to MongoDB
-        res.send('Canvas saved successfully!');
-    } catch (error) {
-        console.error('Error saving image:', error);
-        res.status(500).send('Error saving the image');
-    }
+  try {
+    await DB.saveImage(req.body.imageData); // Correctly await the function
+    res.send('Canvas saved successfully!');
+  } catch (error) {
+    console.error('Error saving image:', error);
+    res.status(500).send('Error saving the image');
+  }
 });
 
 app.get('/getImages', async (req, res) => {
