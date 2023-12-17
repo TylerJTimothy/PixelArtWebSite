@@ -429,4 +429,147 @@ ssh username@remotehost.com
    - Port 80: HTTP
    - Port 22: SSH
 
+# **Final Review**
 
+1. **What ports are used for HTTP, HTTPS, SSH?**
+   - HTTP typically uses port 80, HTTPS uses port 443, and SSH uses port 22.
+
+2. **What do HTTP status codes in the 300, 400, 500 range indicate?**
+   - 300 range status codes indicate redirections, 400 range indicate client errors, and 500 range indicate server errors.
+
+3. **What does the HTTP header content-type allow you to do?**
+   - The "Content-Type" HTTP header specifies the media type of the resource, helping the client process the received data correctly.
+
+4. **What do the following attributes of a cookie do? Domain, Path, SameSite, HTTPOnly?**
+   - **Domain**: Specifies which domain the cookie is accessible to.
+   - **Path**: Restricts the cookie to a specific path within the domain.
+   - **SameSite**: Controls the cookie's sending along with cross-origin requests.
+   - **HTTPOnly**: Makes the cookie accessible only through the HTTP protocol.
+
+5. **Assuming the following Express middleware, what would be the console.log output for an HTTP GET request with a URL path of /foo/bar?**
+   Here's the middleware:
+   ```javascript
+   app.use((req, res, next) => {
+     console.log(req.method, req.path);
+     next();
+   });
+   ```
+   - The output for a GET request to `/foo/bar` would be: `GET /foo/bar`.
+
+6. **Given the following Express service code: What does the following JavaScript fetch return?**
+   - Generally, `fetch()` returns a Promise resolving to the Response of the request.
+
+7. **Given the following MongoDB query { cost: { $gt: 10 }, name: /fran.*/ } select all of the matching documents.**
+   - This query selects documents where `cost` is greater than 10 and `name` starts with "fran".
+
+8. **How should you store user passwords in a database?**
+   - User passwords should be stored in hashed form using algorithms like bcrypt, with salts for added security.
+
+9. **Assuming the following Node.js service code is executing with websockets, what will be logged to the console of the web browser?**
+   - Generally, WebSocket interactions can send messages to the client to be logged in the browser.
+
+10. **What is the WebSocket protocol used for?**
+    - The WebSocket protocol is for two-way interactive communication between a user's browser and a server.
+
+11. **What is JSX and how are the curly braces rendered?**
+    - JSX is a syntax extension for JavaScript, used in React. Curly braces in JSX embed JavaScript expressions in the markup.
+
+12. **Assuming a HTML document with a `<div id="root"></div>` element, what content will the following React component generate?**
+    The React component provided:
+    ```javascript
+    function Welcome(props) {
+      return <h1>Hello, {props.name}</h1>;
+    }
+    function App() {
+      return (
+        <div>
+          <Welcome name="Sara" />
+          <Welcome name="Cahal" />
+          <Welcome name="Edite" />
+        </div>
+      );
+    }
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+    ```
+    This will generate:
+    ```html
+    <div>
+      <h1>Hello, Sara</h1>
+      <h1>Hello, Cahal</h1>
+      <h1>Hello, Edite</h1>
+    </div>
+    ```
+
+13. **Assuming a HTML document with a `<div id="root"></div>` element, what content will the following React component generate?**
+    The `Numbers` component:
+    ```javascript
+    function Numbers() { 
+      const numbers = [1, 2, 3, 4, 5];
+      const listItems = numbers.map((number) =>
+        <li>{number}</li>
+      );
+      return(<ul>{listItems}</ul>)
+    }
+    const root = ReactDOM.createRoot(document.getElementById('root')); 
+    root.render(<Numbers/>);
+    ```
+    - This generates an unordered list with numbers 1 to 5 as list items.
+
+14. **What does the following React component do?**
+    The `Example` component:
+    ```javascript
+    function Example() {
+      const [count, setCount] = useState(0);
+      return (
+        <div>
+          <p>You clicked {count} times</p>
+          <button onClick={() => setCount(count + 1)}>
+            Click me
+          </button>
+        </div>
+      );
+    }
+    ```
+    It's a counter component that increments the count each time the button is clicked.
+
+15. **What are React Hooks used for?**
+    - React Hooks allow function components to use React state and lifecycle features.
+
+16. **What is the useEffect hook used for?**
+    - `useEffect` is for performing side effects in function components, like data fetching or manual DOM changes.
+
+17. **What does this code do?**
+    The provided code:
+    ```javascript
+    export default function App() {
+      return (
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="blogs" element={<Blogs />} />
+              <Route path="contact" element={<Contact />} />
+              <Route path="*" element={<NoPage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      );
+    }
+    ```
+    - It sets up a router in a React application, defining routes for different components.
+
+18. **What role does npm play in web development?**
+    - npm is a package manager for JavaScript, used for installing, sharing, and managing project dependencies.
+
+19. **What does package.json do in an npm project?**
+    - `package.json` holds project metadata and manages project dependencies, scripts, and versions.
+
+20. **What does the fetch function do?**
+    - `fetch` makes network requests and returns a Promise resolving to the Response of the request.
+
+21. **What does Node.js do?**
+    - Node.js is a JavaScript runtime for server-side and networking applications.
+
+22. **What does Vite do?**
+    - Vite is a front-end build tool for faster server start, instant module reloading, and efficient bundling.
