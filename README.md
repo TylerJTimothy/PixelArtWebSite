@@ -1,74 +1,103 @@
-# **8-bit Pixel Art Editor Startup**
-### [startup.tylertimothy.click ](startup.tylertimothy.click)
-## **I am not curently hosting the site anymore. Please message me if you have any questions about the project.**
+# **8-bit Pixel Art Editor Startup**  
+**Project Link:** [startup.tylertimothy.click](http://startup.tylertimothy.click) *(Site not currently hosted. Please message me for project details.)*
 
-There are many uses for a simple 8-bit pixel art editor.  From making video game sprites or simple logos pixel art is one of the most approachable forms of art.  8-bit pixel art editor will allow you to easily make and share basic pixel art!  Start making your art today and share with other users to see!
-> "8-bit pixel art editor is going to be straight fire" - Tyler
+---
 
+## 🎨 **Project Overview**  
+The **8-bit Pixel Art Editor** is a simple and intuitive tool for creating and sharing pixel art. Whether you're designing retro video game sprites or simple pixel logos, this editor makes pixel art one of the most approachable forms of creativity.  
 
+> "8-bit pixel art editor is going to be straight fire." - *Tyler*  
 
-https://github.com/user-attachments/assets/8d5a3d69-4c1e-4fb0-83ea-b8096e0e1d55
+[![Pixel Art Editor](https://github.com/user-attachments/assets/8d5a3d69-4c1e-4fb0-83ea-b8096e0e1d55)](https://github.com/user-attachments/assets/8d5a3d69-4c1e-4fb0-83ea-b8096e0e1d55)
 
+---
 
-## Key features
-- Place pixels on an 8x8 or bigger pixel grid!
-- Choose from custom 8-bit color palletts!
-- Share your art for others to see!
-- See how many people are currently making art!
-## Use of various technologies
-1. Authentication: 8-bit pixel art editor will allow users to make an account and log in when they make their art.
-2. Database data: 8-bit pixel art editor will save art made by different users and allow recent ones to be seen.
-3. Websocket data: 8-bit pixel art editor will tell you when people are currently working on their own art, when they post, and even what color they are currently using!
-## HTML Deliverables
-- HTML pages - Four HTML pages.  Art, About, view, and home (index)
-- Links - Pages to other pages on the site and to this repository
-- Text - Text telling users to choose a color and displaying usernames
-- Images - For now the drawing grid is just an image
-- Login - Input box and submit button for login.
-- Database - Other's artwork stored on a databse
-- WebSocket - Showing which colors other users are using
-## CSS Deliverables
-- Consistent Bootstrap Header, consistent footer, and main layout 
-- Navigate through the header including my brand icon I made
-- Responsive design, other than the art canvas and images
-- Consistent color scheme and contrast
-- Consistent fonts
-- Ordered my images using CSS grids
-## JavaScript deliverable
-For this deliverable I implemented by JavaScript so that the application works for a single user. I also added placeholders for future technology.
+## ✨ **Key Features**  
+- **Pixel Grid**: Place pixels on an 8x8 or larger grid to create custom artwork.  
+- **Color Palettes**: Choose from custom 8-bit color palettes.  
+- **Art Sharing**: Share your creations with others.  
+- **Live Updates**: See how many users are actively working on art and view their progress in real-time.  
 
-- login - When you press enter or the login button it takes you to the pixel art creation page.
-- database - Stores the photos you've made on local storage and displays them on the gallery page.
-- WebSocket - Right now I jused javascript to randomly switch colors that other people could be using.
-- application logic - You can create images pixel by pixel on a cavnas element
+---
 
-## Service deliverable
-For this deliverable I added backend endpoints that make calls to an api to get a suggested color palette. 
+## 🛠️ **Technologies Used**  
 
-- Node.js/Express HTTP service - done!
-- Static middleware for frontend - done!
-- Calls to third party endpoints - calls a color palette api
-- Frontend calls service endpoints - I did this using the fetch function on a button press
+### **Frontend**  
+- **HTML**:  
+   - Four pages: Home (index), Art Editor, About, and Gallery.  
+   - Links between pages and to this repository.  
+   - Display usernames, prompts, and an interactive drawing grid (image placeholder for now).  
+- **CSS**:  
+   - Responsive layout using Bootstrap and custom grids.  
+   - Consistent header, footer, color scheme, and fonts.  
+   - Organized gallery using CSS grid.  
+- **JavaScript**:  
+   - **Application Logic**: Canvas-based pixel-by-pixel art creation.  
+   - **Local Storage**: Save and display your artwork locally in the gallery page.  
+   - **Dynamic WebSocket Simulation**: Displays placeholder "user colors" in real time.  
+   - **Login Logic**: Navigate to the art creation page upon entering credentials.  
 
-## DB deliverable
-For this deliverable I stored images in the database.
+---
 
-- MongoDB Atlas database created - done!
-- Endpoints for data - My stubbed out endpoints now process the data and send it to Mongo.
-- Stores data in MongoDB - done!
+### **Backend**  
+- **Node.js / Express**:  
+   - API endpoints for functionality.  
+   - Static middleware to serve the frontend.  
+   - Integrated calls to a third-party API for suggested color palettes.  
+- **MongoDB Atlas**:  
+   - Stores user credentials and artwork.  
+   - API endpoints handle data retrieval and storage.  
+- **WebSocket**:  
+   - Enables real-time chat and live updates on the art page.  
 
-## Login deliverable
-For this deliverable I require user authentication
+---
 
-- User registration - Creates a new account in the database.
-- existing user - can log in with credentials
-- Use MongoDB to store credentials
-- Restricts functionality - You cannot draw art until you log in. This is restricted on the frontend only.
+## 📂 **Deliverables**  
 
-## WebSocket deliverable
-For this deliverable I used webSocket to create a chat functionality.
+### **HTML Deliverables**  
+- Four HTML pages: **Art, About, Gallery, and Home (index)**.  
+- Links between pages and repository.  
+- Input boxes for login functionality.  
 
-- Backend listens for WebSocket connection - done!
-- Frontend makes WebSocket connection - done!
-- Data sent over WebSocket connection - done!
-- WebSocket data displayed - Chat displayed on the main art page.
+### **CSS Deliverables**  
+- Consistent **Bootstrap header** and footer.  
+- Responsive design (excluding art canvas and images).  
+- Organized grid-based layout for the gallery.  
+- Custom branding and color contrast.  
+
+### **JavaScript Deliverables**  
+- **Login**: Navigate to the pixel art editor upon login.  
+- **Local Storage**: Save and display your art on the gallery page.  
+- **WebSocket Placeholder**: Simulates other users’ color selections.  
+- **Canvas Logic**: Pixel-by-pixel art creation using the canvas element.  
+
+### **Service Deliverables**  
+- **Node.js / Express API**: Backend endpoints retrieve suggested color palettes.  
+- **Static Middleware**: Serves the frontend files.  
+- **API Calls**: Integrates with a color palette API using `fetch`.  
+
+### **Database Deliverables**  
+- **MongoDB Atlas**: Stores artwork and user credentials.  
+- **Endpoints**: Processes and sends data to MongoDB.  
+
+### **Authentication Deliverables**  
+- **User Registration**: Create a new account stored in MongoDB.  
+- **Login Functionality**: Existing users can log in with credentials.  
+- **Feature Restriction**: Only logged-in users can create pixel art (frontend enforcement).  
+
+### **WebSocket Deliverables**  
+- **Backend**: Listens for WebSocket connections.  
+- **Frontend**: Establishes WebSocket connections.  
+- **Real-Time Chat**: Data sent and displayed on the main art page.  
+
+---
+
+## 🚀 **Future Improvements**  
+- Enhance live updates for collaborative art creation.  
+- Add image exporting and advanced grid tools.  
+- Implement backend enforcement for authentication-restricted features.  
+
+---
+
+## 📧 **Contact**  
+If you have any questions or would like more details about this project, please feel free to message me.  
